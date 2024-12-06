@@ -34,3 +34,22 @@ def math_roulette_challenge():
 
     print("Calculate the result by combining these numbers with", opChoice)
 
+
+def solve_linear_equation() :
+    a,b = random.randint(1,10), random.randint(1,10)
+    x = -b/a
+    return (a,b,x)
+
+
+def math_challenge_equation() :
+    solve_linear_equation()
+    print (a)
+    print(b)
+    print(a,"x +",b,"= 0")
+    y = input("solve the equation")
+    if x == y :
+        return True
+    return False
+
+print (math_challenge_equation())
+
