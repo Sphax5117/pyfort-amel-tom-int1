@@ -30,16 +30,23 @@ def math_roulette_challenge():
         case "subtraction":
             r = l[0]
             for i in range(1,5):
-                r = 0
-
+                r -= l[i]
+        case "multiplication":
+            r = l[0] * l[1] * l[2] * l[3] * l[4]
     print("Calculate the result by combining these numbers with", opChoice)
+    userInput = int(input("Your answer: "))
+    if userInput == r:
+        print("Well Done ! You won a key")
+        return True
+    else:
+        return False
 
+math_roulette_challenge()
 
 def solve_linear_equation() :
     a,b = random.randint(1,10), random.randint(1,10)
     x = -b/a
     return (a,b,x)
-
 
 def math_challenge_equation() :
     solve_linear_equation()
