@@ -1,6 +1,6 @@
 import random
 
-'''def shell_game():
+def shell_game():
     shells = ['A', 'B', 'C']
     rules = """
         🧙‍♂️ 
@@ -48,20 +48,6 @@ def chance_challenge():
         select_challenge = random.choice(challenges)
         return select_challenge()
 
-
-
-shell_game()'''
-
-
-
-
-
-
-
-
-
-
-import random
 def roll_dice_game():
     attempts = 3
     for i in range (attempts):
