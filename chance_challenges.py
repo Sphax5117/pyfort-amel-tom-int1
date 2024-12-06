@@ -1,6 +1,6 @@
 import random
 
-def shell_game():
+'''def shell_game():
     shells = ['A', 'B', 'C']
     rules = """
         🧙‍♂️ 
@@ -47,3 +47,39 @@ def chance_challenge():
         challenges = [shell_game, roll_dice_game]
         select_challenge = random.choice(challenges)
         return select_challenge()
+
+
+
+shell_game()'''
+
+
+
+
+
+
+
+
+
+
+import random
+def roll_dice_game():
+    attempts = 3
+    for i in range (attempts):
+        n = str(input("Press 'Enter' to roll the dice"))
+        if n != 'Enter':
+            n= str(input("Press 'Enter' to roll the dice"))
+        player_dice=(random.randint(1,6),random.randint(1,6))
+        print (player_dice)
+        if 6 in player_dice :
+            print ("You win the game and the key !!")
+            return True
+        master_dice=(random.randint(1,6),random.randint(1,6))
+        print(master_dice)
+        if 6 in master_dice :
+            print ("The game master has won the game...")
+            return False
+        print ("No one find 6. Move to the next attempt.")
+    print ("Neither the player nor the game master  find 6")
+    return False
+
+print (roll_dice_game())
