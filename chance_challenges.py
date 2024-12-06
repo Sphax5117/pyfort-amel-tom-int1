@@ -32,17 +32,18 @@ def shell_game():
         choice = random.choice(shells)
         print(f"You have {2-i} guesses left")
         userInput = input((f"Try {i+1}, what is your guess : ")).upper()
-        while userInput != choice:
-            print("Choicie")
+        while userInput not in shells:
+            print("Your choice isn't in the propositions (A,B or C)")
+            userInput = input((f"Try {i+1}, what is your guess : ")).upper()
         if userInput == choice:
             print(f"Well down brave adventurer, you found the key beneath shell {choice}")
             return True
         else:
             print("You were unsucessful, try again !")
+    print("You lost...")
+    return False
 
-
-
-
-
-
-shell_game()
+def chance_challenge():
+        challenges = [shell_game, roll_dice_game]
+        select_challenge = random.choice(challenges)
+        return select_challenge()
