@@ -41,10 +41,15 @@ def solve_linear_equation() :
 
 def math_challenge_equation() :
     a,b,x = solve_linear_equation()
-    print(a,"x +",b,"= 0")
-    y = float(eval(input("solve the equation")))
+    print("Math Challenge: Solve the equation",a,"x +",b,"= 0")
+    y = float(eval(input("What is the value of x:")))
     if x == y :
+        print("Correct! You win a key.")
         return True
     return False
 
+def math_challenge() :
+    challenges =[math_challenge_factorial,math_roulette_challenge,math_challenge_equation]
+    select_challenge = random.choice(challenges)
+    return select_challenge()
 
