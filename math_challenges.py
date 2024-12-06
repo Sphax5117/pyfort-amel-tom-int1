@@ -39,6 +39,7 @@ def math_roulette_challenge():
         print("Well Done ! You won a key")
         return True
     else:
+        print("You failed...")
         return False
 
 
