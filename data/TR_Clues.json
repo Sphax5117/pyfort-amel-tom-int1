@@ -1,0 +1,190 @@
+[
+  {
+    "Clues": ["SILENCE", "ALARM", "STATION", "POST", "FREQUENCY", "ANTENNA"],
+    "CODE-WORD": "RADIO"
+  },
+  {
+    "Clues": ["HAIR", "NEST", "GUARDIAN", "WINGS", "SON", "HALO"],
+    "CODE-WORD": "ANGEL"
+  },
+  {
+    "Clues": ["JUMP", "EAR", "DOG", "INSECT", "ELECTRONICS", "CARD"],
+    "CODE-WORD": "CHIP"
+  },
+  {
+    "Clues": ["GARDEN", "BEAUTY", "DANCES", "PROFESSIONAL", "FAIR", "AGRICULTURE"],
+    "CODE-WORD": "SHOW"
+  },
+  {
+    "Clues": ["GOLF", "MEMORY", "LOCK", "MOUSE", "BLACK", "WATER"],
+    "CODE-WORD": "HOLE"
+  },
+  {
+    "Clues": ["MARKET", "CAKE", "PORTION", "MAKE", "SHARE", "SLICE"],
+    "CODE-WORD": "PART"
+  },
+  {
+    "Clues": ["WHITE", "NIGHT", "BIG", "BATH", "DONKEY", "SKI"],
+    "CODE-WORD": "HAT"
+  },
+  {
+    "Clues": ["GUTTER", "FISH", "GRASS", "TONGUE", "CAT", "SIAMESE"],
+    "CODE-WORD": "CAT"
+  },
+  {
+    "Clues": ["SHOW", "CAVALIER", "HAMMER", "CLOVE", "POINT", "HARDWARE"],
+    "CODE-WORD": "NAIL"
+  },
+  {
+    "Clues": ["MASTER", "ROOM", "SPECIFIC", "CITY", "STAR", "NIGHT"],
+    "CODE-WORD": "HOTEL"
+  },
+  {
+    "Clues": ["EAR", "HEART", "FINE", "BATH", "FUN", "WATER"],
+    "CODE-WORD": "MOUTH"
+  },
+  {
+    "Clues": ["CARE", "FRESH", "COFFEE", "SOLAR", "PASTRY", "BRULEE"],
+    "CODE-WORD": "CREAM"
+  },
+  {
+    "Clues": ["LIFE", "SCHEDULE", "PINEAPPLE", "BOOK", "TAX", "SLICE"],
+    "CODE-WORD": "SLICE"
+  },
+  {
+    "Clues": ["EMPTY", "SPEED", "LEVEL", "OPINION", "EXTRACT", "PEDESTRIAN"],
+    "CODE-WORD": "PASSAGE"
+  },
+  {
+    "Clues": ["BOTTOM", "AIR", "ROOM", "INSTRUMENT", "NOTE", "SCORE"],
+    "CODE-WORD": "MUSIC"
+  },
+  {
+    "Clues": ["GUITAR", "VERBAL", "MINOR", "PRINCIPLE", "VERB", "SIGNATURE"],
+    "CODE-WORD": "CHORD"
+  },
+  {
+    "Clues": ["REVENGE", "DAY", "EGG", "FOOT", "MAIN", "FALSE"],
+    "CODE-WORD": "PLATE"
+  },
+  {
+    "Clues": ["IRON", "THROAT", "ALERT", "STENDHAL", "LIP", "RUBY"],
+    "CODE-WORD": "RED"
+  },
+  {
+    "Clues": ["EYE", "FISH", "PERCH", "GUTTER", "HAIR", "TONGUE"],
+    "CODE-WORD": "CAT"
+  },
+  {
+    "Clues": ["CIRCLE", "ROPE", "SKY", "TRIUMPH", "ARCH", "SHOT"],
+    "CODE-WORD": "BOW"
+  },
+  {
+    "Clues": ["RIGHT", "TABLE", "IRON", "BACK", "PULL", "CAMINO"],
+    "CODE-WORD": "PATH"
+  },
+  {
+    "Clues": ["STRONG", "VOICE", "BANK", "FURNITURE", "TOYS", "ROOF"],
+    "CODE-WORD": "CHEST"
+  },
+  {
+    "Clues": ["CHANCE", "ORDER", "AGAINST", "PARTY", "NIGHT", "YEAR"],
+    "CODE-WORD": "DAY"
+  },
+  {
+    "Clues": ["HEAD", "EYE", "SHARK", "RIVER", "BENGAL", "FELINDRA"],
+    "CODE-WORD": "TIGER"
+  },
+  {
+    "Clues": ["LOCK", "PROBLEM", "ARM", "VAULT", "WHEEL", "FIELD"],
+    "CODE-WORD": "KEY"
+  },
+  {
+    "Clues": ["COW", "MIST", "DEVIL", "FOOT", "PASTRY", "IVORY"],
+    "CODE-WORD": "HORN"
+  },
+  {
+    "Clues": ["CUP", "LAMB", "HEAD", "CHOCOLATE", "ACE", "POKER"],
+    "CODE-WORD": "SQUARE"
+  },
+  {
+    "Clues": ["BLACK", "FLOUR", "STRAW", "EAR", "FIELD", "MONEY"],
+    "CODE-WORD": "WHEAT"
+  },
+  {
+    "Clues": ["HIDDEN", "WHITE", "CLAUDINE", "FEMUR", "TOURMALET", "SWAN"],
+    "CODE-WORD": "COL"
+  },
+  {
+    "Clues": ["FLOWER", "PASTA", "WHITE", "BATH", "ALUM", "GUERANDE"],
+    "CODE-WORD": "SALT"
+  },
+  {
+    "Clues": ["WAR", "HEART", "LAST", "SHOUT", "ANIMALS", "PAIN"],
+    "CODE-WORD": "SHOUT"
+  },
+  {
+    "Clues": ["POWDER", "MILK", "BOWL", "GRAIN", "HIT", "CUP"],
+    "CODE-WORD": "COFFEE"
+  },
+  {
+    "Clues": ["CARD", "PUBLIC", "PIRATE", "ISLAND", "CHEST", "ROOM"],
+    "CODE-WORD": "TREASURE"
+  },
+  {
+    "Clues": ["LAWYER", "LEGITIMATE", "FOOTBALL", "SECRET", "ELEPHANT", "ARK"],
+    "CODE-WORD": "DEFENSE"
+  },
+  {
+    "Clues": ["GLASS", "LITTLE", "HAT", "FABRIC", "BALL", "THREAD"],
+    "CODE-WORD": "WOOL"
+  },
+  {
+    "Clues": ["HAND", "PAPER", "BEACH", "TRIP", "KNOTS", "TRASH"],
+    "CODE-WORD": "BAG"
+  },
+  {
+    "Clues": ["DENTAL", "STREET", "ICE", "COOKING", "REGISTRATION", "SEWER"],
+    "CODE-WORD": "PLATE"
+  },
+  {
+    "Clues": ["ROAD", "STAMPS", "EDGE", "NOTES", "ADDRESSES", "BOOKLET"],
+    "CODE-WORD": "NOTEBOOK"
+  },
+  {
+    "Clues": ["CROISSANT", "SATELLITE", "CLEAR", "GIBBOUS", "APOLLO", "SKY"],
+    "CODE-WORD": "MOON"
+  },
+  {
+    "Clues": ["PRIZE", "ADVICE", "LITTLE", "ENEMY", "CHILDHOOD", "BEST"],
+    "CODE-WORD": "FRIEND"
+  },
+  {
+    "Clues": ["BEAUTIFUL", "SPIRITUAL", "FAMILY", "CHRISTMAS", "FATHER", "DAD"],
+    "CODE-WORD": "FATHER"
+  },
+  {
+    "Clues": ["TISSUE", "FREE", "EARTH", "RICE", "ANIMAL", "VEGETABLE"],
+    "CODE-WORD": "PAPER"
+  },
+  {
+    "Clues": ["JOKER", "PHILIPPE", "BOWTIE", "ROAD", "ELECTRIC", "PODIUM"],
+    "CODE-WORD": "CIRCUS"
+  },
+  {
+    "Clues": ["CAMERA", "HORIZONTAL", "POST", "CABINET", "TIGHT", "SPEAKER"],
+    "CODE-WORD": "LENS"
+  },
+  {
+    "Clues": ["PEACE", "SPEED", "ENGINE", "DIALOGUE", "VOICE", "MUSIC"],
+    "CODE-WORD": "NATURAL"
+  },
+  {
+    "Clues": ["JAZZ", "VIOLET", "RICH", "VICIOUS", "ELECTRONIC", "ORANGE"],
+    "CODE-WORD": "DARK"
+  },
+  {
+    "Clues": ["BABY", "NO", "MAYOR", "MARK", "GROWTH", "FATHER"],
+    "CODE-WORD": "FIRE"
+  }
+]

@@ -13,7 +13,7 @@ def load_json(file):
 def pere_fouras_riddles():
     riddles = load_json("data/PFRiddles.json")
     attempts = 3
-    chosenRiddle = riddles[random.randint(0,len(riddles)-1)]
+    chosenRiddle = random.choice(riddles)
     print(f"Hello Adventurer.\nHere is my riddle : {list(chosenRiddle.keys())[0]}.")
     while attempts > 0:
         print(f"You have {attempts} attempts left.")
