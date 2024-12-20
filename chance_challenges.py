@@ -51,9 +51,9 @@ def chance_challenge():
 def roll_dice_game():
     attempts = 3
     for i in range (attempts):
-        n = str(input("Put 'Enter' to roll the dice"))
+        n = str(input("Press 'Enter' to roll the dice"))
         if n != 'Enter':
-            n= str(input("Put 'Enter' to roll the dice"))
+            n= str(input("Press 'Enter' to roll the dice"))
         player_dice=(random.randint(1,6),random.randint(1,6))
         print (player_dice)
         if 6 in player_dice :

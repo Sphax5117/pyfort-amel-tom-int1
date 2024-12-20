@@ -40,10 +40,12 @@ def initialize():
 def turn(player, player_shot_grid, opponent_grid):
     display_grid(player_shot_grid, "History of your previous shots")
     if player == 1:
-        shot = (random.randint(1,3), random.randint(1,3))
+        shot = (random.randint(0,2), random.randint(0,2))
+        print(shot)
     else:
+        print("Enter your shot")
         shot = ask_position()
-    if opponent_grid[shot[0]][shot[1]] == "🚢":
+    if opponent_grid[shot[0]][shot[1]] == "🚢" or opponent_grid[shot[0]][shot[1]] == "X":
         player_shot_grid[shot[0]][shot[1]] = "X"
     else:
         player_shot_grid[shot[0]][shot[1]] = "."
@@ -52,7 +54,7 @@ def has_won(player_shot_grid):
     cpt = 0
     for i in player_shot_grid:
         for j in i:
-            if cpt == "X":
+            if j == "X":
                 cpt +=1
     if cpt == 2:
         return True
@@ -76,8 +78,14 @@ def battleship_game():
     playerG = initialize()
     playerS = empty_grid()
     masterG = empty_grid()
-    masterG[random.randint(0,2)][random.randint(0,2)] = "🚢"
-    masterG[random.randint(0, 2)][random.randint(0, 2)] = "🚢"
+    x1, y1 = random.randint(0, 2), random.randint(0, 2)
+    masterG[x1][y1] = "🚢"
+    while True:
+        x2, y2 = random.randint(0, 2), random.randint(0, 2)
+        if (x2, y2) != (x1, y1):
+            masterG[x2][y2] = "🚢"
+            break
+
     print(display_grid(masterG,"Master grid : "))
     masterS = empty_grid()
 
@@ -86,22 +94,31 @@ def battleship_game():
     actual_player = 0
     while not won:
         if actual_player == 0:
-            turn(playerG, playerS, masterG)
-            c = has_won(playerS)
-            if c:
+            turn(actual_player, playerS, masterG)
+            won = has_won(playerS)
+            if won:
                 print("Bravo ! You won")
                 return
         if actual_player == 1:
-            turn(masterG, masterS, playerG)
-            c = has_won(masterS)
-            if c:
+            turn(actual_player, masterS, playerG)
+            won = has_won(masterS)
+            if won:
                 print("You lost...")
                 return False
 
 
         actual_player = next_player(actual_player)
 
-battleship_game()
+
+def logical_challenge() :
+    challenges =[battleship_game]
+    select_challenge = random.choice(challenges)
+    return select_challenge()
+
+
+
+
+
 
 
 
