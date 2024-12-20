@@ -42,3 +42,6 @@ def game():
 
 
 game()
+
+
+print("test")

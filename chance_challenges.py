@@ -67,3 +67,4 @@ def roll_dice_game():
         print ("No one find 6. Move to the next attempt.")
     print ("Neither the player nor the game master  find 6")
     return False
+
