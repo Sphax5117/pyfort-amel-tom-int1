@@ -26,5 +26,3 @@ def pere_fouras_riddles():
         attempts -= 1
     print(f"You  lost... The answer was {list(chosenRiddle.values())[0]}")
     return False
-pere_fouras_riddles()
-

@@ -27,4 +27,3 @@ def treasure_room():
         print("You have won, bravo !")
     else:
         print("You failed... You'll stay on the fort boyard for the rest of your life")
-treasure_room()

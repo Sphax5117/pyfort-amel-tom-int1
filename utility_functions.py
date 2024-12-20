@@ -38,7 +38,7 @@ def choose_player(team):
         if team[i]["leader"]:
             r = "Leader"
         else: r = "Member"
-        print(f"---------- \n Name : {team[i]['name']} \n Profession {team[i]['profession']} \n Role : {r}")
+        print(f"---------- Player {i +1 } \n Name : {team[i]['name']} \n Profession {team[i]['profession']} \n Role : {r}")
     usrchoice = int(input("Enter the player's number : "))
     while usrchoice < 1 or usrchoice > len(team):
         usrchoice = int(input("Re-enter the player's number :"))
