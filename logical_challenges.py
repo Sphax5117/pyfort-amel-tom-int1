@@ -101,8 +101,68 @@ def battleship_game():
 
         actual_player = next_player(actual_player)
 
-
-
-
-
 battleship_game()
+
+
+
+##################################################### The game of Nim (Weak)
+
+def display_sticks (n) :
+    nb_sticks = n * "|"
+    print(nb_sticks)
+
+def player_removal(n) :
+    a = int(input("Enter an integer between 1,2,3 :"))
+    while a < 1 or a > 3 :
+        a = int(input("Enter an integer between 1,2,3 :"))
+    n = n - a
+    nb_sticks = n * '|'
+    return nb_sticks
+
+def master_removal (n):
+    b = n % 4
+    print('The game master have removed',b,'sticks')
+
+def nim_game() :
+    n = 20
+    is_player_turn = True
+    if n!= 0 :
+        while is_player_turn == True :
+            if is_player_turn:
+                print("Player's turn!")
+                display_sticks(n):
+                is_player_turn = False
+            else:
+                print("Opponent's turn!")
+                is_player_turn = True
+
+def nim_game():
+    n = 20
+    is_player_turn = True
+    while n > 0:
+        display_sticks(n)
+        if is_player_turn == True :
+            print("Player's turn!")
+            n_removed = int(input("Enter an integer between 1, 2, or 3: "))
+            while n_removed < 1 or n_removed > 3 or n_removed > n:
+                n_removed = int(input("Enter an integer between 1, 2, or 3: "))
+        else:
+            print("Game master's turn!")
+            if n % 4 == 0:
+                n_removed = 1
+            else:
+                n_removed = n % 4
+
+            print(f"The game master removes {n_removed} stick.")
+        n -= n_removed
+        if n == 0:
+            if is_player_turn == True:
+                print("You removed the last stick! You lose.")
+                return False
+            else:
+                print("The game master removed the last stick! The player wins !")
+                return True
+
+        is_player_turn = False
+
+

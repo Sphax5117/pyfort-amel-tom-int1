@@ -57,9 +57,44 @@ def math_challenge_equation() :
         return True
     return False
 
+import random
+def is_prime(n):
+    if n < 2  :
+        n= int(input('Enter an integer superior at 1 :'))
+    cpt = 0
+    for i in range (1,n+1):
+        if n%i == 0 :
+            cpt += 1
+    if cpt != 2 :
+        return False
+    else :
+        return True
+def nearest_prime(n):
+    cpt = 0
+    while is_prime(n) == False :
+        n -= 1
+    return n
+
+def math_challenge_prime() :
+    n = random.randint(10, 20)
+    user_answer = int(input(f"Math Challenge: Find the nearest prime to {n}:"))
+    print("Your answer is :", user_answer)
+    good_answer = nearest_prime(n)
+    if user_answer == good_answer :
+        return True
+    else :
+        return False
+
+if math_challenge_prime() == True :
+    print ("Correct! You win a key.")
+else :
+    print ('You lost !')
+
 def math_challenge() :
     challenges =[math_challenge_factorial,math_roulette_challenge,math_challenge_equation]
     select_challenge = random.choice(challenges)
     return select_challenge()
+
+
 
 
