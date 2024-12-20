@@ -27,17 +27,10 @@ def compose_team():
 
 
 def challenge_menu():
-    global challenge_left
-    for i in challenge_left:
-        match i:
-            case 1: print(f" {i}. Mathematics challenges")
-            case 2: print(f" {i}. Logic challenges")
-            case 3: print(f" {i}. Chance challenges")
-            case 4: print(f" {i}. Père Fouras' riddle")
+    print("----------- \n You must chose a challenge type:  \n 1. Mathematics challenge \n 2. Logic challenge \n 3. Chance challenge \n 4. Père Fouras' riddle")
     usrChoice = int(input("Enter you choice : "))
     while usrChoice < 1 or usrChoice > 4:
         usrChoice = int(input("Re-enter your choice : "))
-    challenge_left.pop(usrChoice-1)
     return usrChoice
 
 def choose_player(team):
@@ -54,12 +47,3 @@ def choose_player(team):
 
 def record_history(): ### We'll develop that later, might store in a JSON
     pass
-
-
-
-
-
-
-
-
-choose_player(compose_team())

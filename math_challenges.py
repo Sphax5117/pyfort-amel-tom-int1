@@ -55,6 +55,7 @@ def math_challenge_equation() :
     if x == y :
         print("Correct! You win a key.")
         return True
+    print(x,y)
     return False
 
 def math_challenge() :

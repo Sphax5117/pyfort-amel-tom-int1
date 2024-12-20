@@ -109,8 +109,12 @@ def battleship_game():
 
         actual_player = next_player(actual_player)
 
+def logical_challenge() :
+    challenges =[battleship_game, nim_game]
+    select_challenge = random.choice(challenges)
+    return select_challenge()
 
 
 
 
-battleship_game()
+
