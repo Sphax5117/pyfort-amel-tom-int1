@@ -1,6 +1,87 @@
 import tkinter as tk
 from tkinter import ttk
+import random
+from fractions import Fraction
 
+# ------------------------------
+#   MATH CHALLENGE FUNCTIONS
+# ------------------------------
+
+def factorial(n):
+    final = 1
+    for i in range(2, n + 1):
+        final *= i
+    return final
+
+def math_challenge_factorial():
+    """
+    Returns (challenge_text, correct_answer).
+    Example: "Calculate the factorial of 5" => correct_answer = 120
+    """
+    n = random.randint(1, 10)
+    challenge_text = f"Calculate the factorial of {n}"
+    correct_answer = factorial(n)  # an integer
+    return challenge_text, correct_answer
+
+def math_roulette_challenge():
+    """
+    Returns (challenge_text, correct_answer) for a random 'roulette' of 5 numbers
+    with addition, subtraction, or multiplication.
+    """
+    nums = [random.randint(1, 20) for _ in range(5)]
+    operations = ["addition", "subtraction", "multiplication"]
+    op_choice = random.choice(operations)
+
+    if op_choice == "addition":
+        correct_answer = sum(nums)  # int
+        challenge_str = " + ".join(str(x) for x in nums)
+    elif op_choice == "subtraction":
+        correct_answer = nums[0]
+        for i in range(1, 5):
+            correct_answer -= nums[i]
+        challenge_str = " - ".join(str(x) for x in nums)
+    else:  # multiplication
+        correct_answer = 1
+        for x in nums:
+            correct_answer *= x
+        challenge_str = " * ".join(str(x) for x in nums)
+
+    challenge_text = f"{challenge_str} = ?"
+    return challenge_text, correct_answer
+
+def solve_linear_equation():
+    """
+    Returns (a, b, fraction_solution) for a*x + b = 0
+    x = -b / a
+    """
+    a = random.randint(1, 10)
+    b = random.randint(1, 10)
+    # We'll store the solution as a Fraction, e.g. -b/a
+    fraction_solution = Fraction(-b, a)
+    return a, b, fraction_solution
+
+def math_challenge_equation():
+    """
+    Returns (challenge_text, correct_answer) for a linear eqn: a*x + b = 0
+    Acceptable answers are floats or fractions like "-4/37".
+    """
+    a, b, fraction_solution = solve_linear_equation()
+    challenge_text = f"Solve the equation {a}x + {b} = 0"
+    correct_answer = fraction_solution  # a Fraction
+    return challenge_text, correct_answer
+
+def random_math_challenge():
+    """
+    Randomly picks one of the three math sub-challenges
+    and returns (challenge_text, correct_answer).
+    """
+    challenges = [math_challenge_factorial, math_roulette_challenge, math_challenge_equation]
+    chosen_func = random.choice(challenges)
+    return chosen_func()
+
+# ------------------------------
+#   TKINTER APP CLASSES
+# ------------------------------
 
 class FortBoyardApp(tk.Tk):
     def __init__(self):
@@ -27,16 +108,19 @@ class FortBoyardApp(tk.Tk):
         self.main_frame = MainFrame(container, self)
         self.team_creation_frame = TeamCreationFrame(container, self)
         self.challenge_frame = ChallengeFrame(container, self)
+        self.math_challenge_frame = MathChallengeFrame(container, self)
 
-        # Place each frame in the same row/column, so only one is visible at a time
+        # Place each frame in the same row/column
         self.main_frame.grid(row=0, column=0, sticky="nsew")
         self.team_creation_frame.grid(row=0, column=0, sticky="nsew")
         self.challenge_frame.grid(row=0, column=0, sticky="nsew")
+        self.math_challenge_frame.grid(row=0, column=0, sticky="nsew")
 
         # Add frames to dictionary for easy access
         self.frames["MainFrame"] = self.main_frame
         self.frames["TeamCreationFrame"] = self.team_creation_frame
         self.frames["ChallengeFrame"] = self.challenge_frame
+        self.frames["MathChallengeFrame"] = self.math_challenge_frame
 
         # Show the initial page
         self.show_frame("MainFrame")
@@ -123,9 +207,7 @@ class MainFrame(tk.Frame):
 class TeamCreationFrame(tk.Frame):
     """
     Page 2: Collect each player's name, profession, role.
-    Exactly one leader must exist:
-      - If 0 leaders chosen, the first player is forced to be Leader.
-      - If multiple leaders, keep only the first found.
+    Exactly one leader must exist.
     """
 
     def __init__(self, parent, controller):
@@ -390,6 +472,154 @@ class ChallengeFrame(tk.Frame):
             font=('Montserrat', 12),
             fg="green"
         ).pack()
+
+        # If the user selects Mathematics, go to the MathChallengeFrame
+        if chosen_challenge == "Mathematics":
+            self.controller.show_frame("MathChallengeFrame")
+        else:
+            # In a complete app, you'd create other frames for Logic, Chance, etc.
+            pass
+
+
+class MathChallengeFrame(tk.Frame):
+    """
+    This frame will randomly present one of the three math challenges:
+      1) Factorial
+      2) Roulette (add/sub/mult)
+      3) Linear Equation (accept fractions like "4/37")
+    """
+
+    def __init__(self, parent, controller):
+        super().__init__(parent)
+        self.controller = controller
+
+        # Keep track of the correct answer for each challenge
+        self.correct_answer = None
+
+        # Title
+        self.title_label = tk.Label(
+            self,
+            text="Mathematics Challenge",
+            font=('Montserrat', 16)
+        )
+        self.title_label.pack(pady=20)
+
+        # Where the challenge text will appear
+        self.challenge_label = tk.Label(self, text="", font=('Montserrat', 14))
+        self.challenge_label.pack(pady=10)
+
+        # Entry for the user's answer
+        self.answer_entry = tk.Entry(self, font=('Montserrat', 14), width=10)
+        self.answer_entry.pack(pady=5)
+
+        # Button to check the answer
+        check_button = tk.Button(
+            self,
+            text="Check Answer",
+            font=('Montserrat', 12),
+            command=self.check_answer
+        )
+        check_button.pack(pady=10)
+
+        # Label to show the result (correct / incorrect)
+        self.result_label = tk.Label(self, text="", font=('Montserrat', 12))
+        self.result_label.pack(pady=10)
+
+        # Button to get a new random challenge
+        new_button = tk.Button(
+            self,
+            text="New Math Challenge",
+            font=('Montserrat', 12),
+            command=self.load_new_challenge
+        )
+        new_button.pack(pady=10)
+
+        # Button to go back to the ChallengeFrame
+        back_button = tk.Button(
+            self,
+            text="Back to Challenge Selection",
+            font=('Montserrat', 12),
+            command=lambda: controller.show_frame("ChallengeFrame")
+        )
+        back_button.pack(pady=10)
+
+        # Automatically load a new random challenge when this frame is created
+        self.load_new_challenge()
+
+    def load_new_challenge(self):
+        """
+        Pick a new random math challenge and update the UI.
+        """
+        challenge_text, correct_answer = random_math_challenge()
+        self.correct_answer = correct_answer
+
+        # Show the challenge text
+        self.challenge_label.config(text=challenge_text)
+        # Clear previous answer & result
+        self.answer_entry.delete(0, tk.END)
+        self.result_label.config(text="", fg="black")
+
+    def check_answer(self):
+        """
+        Check if the user's input matches the correct answer.
+        Allows fraction input (like -4/37) if the user types a slash.
+        Otherwise, tries float comparison (for factorial/roulette).
+        """
+        user_answer = self.answer_entry.get().strip()
+
+        # If the correct answer is an integer or fraction, we compare accordingly.
+        # We'll parse user input as fraction if it has a slash, else float.
+        try:
+            if "/" in user_answer:
+                # Parse fraction input
+                user_val = Fraction(user_answer)
+                # If the correct answer is also a Fraction or an integer, compare as fraction
+                if isinstance(self.correct_answer, Fraction):
+                    # Direct fraction == fraction comparison
+                    if user_val == self.correct_answer:
+                        self.result_label.config(text="Correct!", fg="green")
+                    else:
+                        self.result_label.config(
+                            text=f"Incorrect! Correct answer: {self.correct_answer}",
+                            fg="red"
+                        )
+                else:
+                    # For factorial/roulette, we can compare fraction float with correct_answer float
+                    if abs(float(user_val) - float(self.correct_answer)) < 1e-6:
+                        self.result_label.config(text="Correct!", fg="green")
+                    else:
+                        self.result_label.config(
+                            text=f"Incorrect! Correct answer: {self.correct_answer}",
+                            fg="red"
+                        )
+            else:
+                # Parse float input
+                user_val_float = float(user_answer)
+                # Compare with correct_answer
+                if isinstance(self.correct_answer, Fraction):
+                    # Compare float of user input vs float of fraction
+                    if abs(user_val_float - float(self.correct_answer)) < 1e-6:
+                        self.result_label.config(text="Correct!", fg="green")
+                    else:
+                        self.result_label.config(
+                            text=f"Incorrect! Correct answer: {self.correct_answer}",
+                            fg="red"
+                        )
+                else:
+                    # correct_answer is int or float
+                    correct_val = float(self.correct_answer)
+                    if abs(user_val_float - correct_val) < 1e-6:
+                        self.result_label.config(text="Correct!", fg="green")
+                    else:
+                        self.result_label.config(
+                            text=f"Incorrect! Correct answer: {self.correct_answer}",
+                            fg="red"
+                        )
+        except ValueError:
+            self.result_label.config(
+                text="Please enter a valid numeric or fraction answer!",
+                fg="red"
+            )
 
 
 if __name__ == "__main__":
