@@ -1,5 +1,80 @@
 import random
-## we'll define 0 for the player, 1 for the game master
+
+#The game of Nim (Weak)
+
+def display_sticks (n) : # n represents the number of sticks to be displayed.
+    nb_sticks = n * "|"
+    print(nb_sticks)
+
+def player_removal(n) :
+    remove = int(input("Enter an integer between 1,2,3 :"))
+    while not 1 < a < 3:
+        remove = int(input("Enter an integer between 1,2,3 :"))
+    n = n - remove # Remove the chosen number of sticks from the total
+    nb_sticks = n * '|'
+    return nb_sticks
+
+def master_removal (n):
+    remainder = n % 4 # AI strategy based on the remainder of the division of n by 4
+    if remainder == 0:
+        remove = 1 # When the remainder equals zero, we will remove a stick, since we must remove at least one stick.
+    else:
+        remove = remainder
+    return remove
+
+def nim_game():
+    n = 20
+    player_turn = True
+    while n > 0:
+        display_sticks(n)
+        if player_turn == True :
+            print("Player's turn!")
+            n_removed = player_removal(n)
+            print(f"You remove {n_removed} stick.")
+        else:
+            print("Game master's turn!")
+            n_removed = master_removal (n)
+            print(f"The game master removes {n_removed} stick.")
+        n -= n_removed
+        if n == 0:
+            if player_turn == True:
+                print("You removed the last stick , you lose...")
+                return False
+            else:
+                print("The game master removed the last stick, you win !!!")
+                return True
+        player_turn = not player_turn # Switch turns between the player and the game master
+
+#The tic-tac-toe game (Medium) :
+
+def display_grid (grid) :
+    grid = ""
+    new_grid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Battleship game (High) ( a commenter )
+
+# we'll define 0 for the player, 1 for the game master
 def next_player(player):
     if player == 1:
         return 0
@@ -61,6 +136,7 @@ def has_won(player_shot_grid):
     else:
         return False
 
+
 def battleship_game():
     print(""" Rules of the Battleship Game: 🚢
 
@@ -109,78 +185,9 @@ def battleship_game():
 
         actual_player = next_player(actual_player)
 
-
 def logical_challenge() :
-    challenges =[battleship_game]
-    select_challenge = random.choice(challenges)
-    return select_challenge()
+    challenges =[nim_game,battleship_game]
+    challenge = random.choice(challenges)
+    return challenge()
 
 
-
-
-
-
-
-
-##################################################### The game of Nim (Weak)
-
-def display_sticks (n) :
-    nb_sticks = n * "|"
-    print(nb_sticks)
-
-def player_removal(n) :
-    a = int(input("Enter an integer between 1,2,3 :"))
-    while a < 1 or a > 3 :
-        a = int(input("Enter an integer between 1,2,3 :"))
-    n = n - a
-    nb_sticks = n * '|'
-    return nb_sticks
-
-def master_removal (n):
-    b = n % 4
-    print('The game master have removed',b,'sticks')
-
-def nim_game() :
-    n = 20
-    is_player_turn = True
-    if n!= 0 :
-        while is_player_turn == True :
-            if is_player_turn:
-                print("Player's turn!")
-                display_sticks(n):
-                is_player_turn = False
-            else:
-                print("Opponent's turn!")
-                is_player_turn = True
-
-def nim_game():
-    n = 20
-    is_player_turn = True
-    while n > 0:
-        display_sticks(n)
-        if is_player_turn == True :
-            print("Player's turn!")
-            n_removed = int(input("Enter an integer between 1, 2, or 3: "))
-            while n_removed < 1 or n_removed > 3 or n_removed > n:
-                n_removed = int(input("Enter an integer between 1, 2, or 3: "))
-        else:
-            print("Game master's turn!")
-            if n % 4 == 0:
-                n_removed = 1
-            else:
-                n_removed = n % 4
-
-            print(f"The game master removes {n_removed} stick.")
-        n -= n_removed
-        if n == 0:
-            if is_player_turn == True:
-                print("You removed the last stick! You lose.")
-                return False
-            else:
-                print("The game master removed the last stick! The player wins !")
-                return True
-
-        is_player_turn = False
-
-
-#test
