@@ -58,7 +58,7 @@ def math_challenge_equation() :
     print(x,y)
     return False
 
-import random
+
 def is_prime(n):
     if n < 2  :
         n= int(input('Enter an integer superior at 1 :'))
@@ -82,17 +82,15 @@ def math_challenge_prime() :
     print("Your answer is :", user_answer)
     good_answer = nearest_prime(n)
     if user_answer == good_answer :
+        print("Correct! You win a key.")
         return True
     else :
+        print('You lost !')
         return False
 
-if math_challenge_prime() == True :
-    print ("Correct! You win a key.")
-else :
-    print ('You lost !')
 
 def math_challenge() :
-    challenges =[math_challenge_factorial,math_roulette_challenge,math_challenge_equation]
+    challenges = [math_challenge_factorial,math_roulette_challenge,math_challenge_equation, math_challenge_prime]
     select_challenge = random.choice(challenges)
     return select_challenge()
 

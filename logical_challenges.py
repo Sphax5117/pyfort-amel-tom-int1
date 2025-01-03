@@ -38,11 +38,12 @@ def initialize():
     return playerBoats
 
 def turn(player, player_shot_grid, opponent_grid):
-    display_grid(player_shot_grid, "History of your previous shots")
     if player == 1:
+        display_grid(player_shot_grid, "History of game master's previous shots")
         shot = (random.randint(0,2), random.randint(0,2))
-        print(shot)
+        print("The game master shot at position : ", shot)
     else:
+        display_grid(player_shot_grid, "History of your previous shots")
         print("Enter your shot")
         shot = ask_position()
     if opponent_grid[shot[0]][shot[1]] == "🚢" or opponent_grid[shot[0]][shot[1]] == "X":
@@ -62,7 +63,7 @@ def has_won(player_shot_grid):
         return False
 
 def battleship_game():
-    print(""" Rules of the Battleship Game: 🚢
+    print(""" Rules of the Battleship Game: 🚢 
 
     Ahoy, brave captains! Prepare for battle on the high seas!  
     Here are the rules for this maritime challenge:  
@@ -73,7 +74,8 @@ def battleship_game():
     - The Setup:  
       Each player has a 3x3 grid to command.  
       You must secretly place 2 boats on your grid.  
-      Boats can occupy any square, but no two boats can share the same spot.  """)
+      Boats can occupy any square, but no two boats can share the same spot.  
+      """)## Rules were written by ChatGPT, to give more immersion to the player.
 
     playerG = initialize()
     playerS = empty_grid()
@@ -85,8 +87,6 @@ def battleship_game():
         if (x2, y2) != (x1, y1):
             masterG[x2][y2] = "🚢"
             break
-
-    print(display_grid(masterG,"Master grid : "))
     masterS = empty_grid()
 
     display_grid(playerG, "Player, here is your grid")
@@ -98,7 +98,7 @@ def battleship_game():
             won = has_won(playerS)
             if won:
                 print("Bravo ! You won")
-                return
+                return True
         if actual_player == 1:
             turn(actual_player, masterS, playerG)
             won = has_won(masterS)
@@ -110,10 +110,6 @@ def battleship_game():
         actual_player = next_player(actual_player)
 
 
-def logical_challenge() :
-    challenges =[battleship_game]
-    select_challenge = random.choice(challenges)
-    return select_challenge()
 
 
 
@@ -140,18 +136,6 @@ def master_removal (n):
     b = n % 4
     print('The game master have removed',b,'sticks')
 
-def nim_game() :
-    n = 20
-    is_player_turn = True
-    if n!= 0 :
-        while is_player_turn == True :
-            if is_player_turn:
-                print("Player's turn!")
-                display_sticks(n):
-                is_player_turn = False
-            else:
-                print("Opponent's turn!")
-                is_player_turn = True
 
 def nim_game():
     n = 20
@@ -163,6 +147,7 @@ def nim_game():
             n_removed = int(input("Enter an integer between 1, 2, or 3: "))
             while n_removed < 1 or n_removed > 3 or n_removed > n:
                 n_removed = int(input("Enter an integer between 1, 2, or 3: "))
+            is_player_turn = False
         else:
             print("Game master's turn!")
             if n % 4 == 0:
@@ -171,6 +156,7 @@ def nim_game():
                 n_removed = n % 4
 
             print(f"The game master removes {n_removed} stick.")
+            is_player_turn = True
         n -= n_removed
         if n == 0:
             if is_player_turn == True:
@@ -180,7 +166,10 @@ def nim_game():
                 print("The game master removed the last stick! The player wins !")
                 return True
 
-        is_player_turn = False
 
 
-#test
+
+def logical_challenge() :
+    challenges =[battleship_game, nim_game]
+    select_challenge = random.choice(challenges)
+    return select_challenge()

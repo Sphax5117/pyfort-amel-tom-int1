@@ -68,5 +68,5 @@ def roll_dice_game():
     print ("Neither the player nor the game master  find 6")
     return False
 
-
+### Here we must precise about displays, it's not very clear.
 

@@ -13,6 +13,7 @@ def game():
     team = compose_team()
     key_won = 0
     while key_won < 3 :
+        print(f"--------------- \n  You have {key_won} keys")
         usrChoice = challenge_menu()
         print("--------------- \n Now, you must chose which player will participate : ")
         if len(team) > 1:
@@ -32,13 +33,12 @@ def game():
             if pere_fouras_riddles():
                 key_won += 1
     if treasure_room():
-        print("Well done, you finished the game and won !")
+        print("You have won, bravo !")
     else:
-        print("You lost the game, goodbye...")
-
-
-        print(key_won)
+        print("You failed... You'll stay on the fort boyard for the rest of your life")
 
 
 
-game()
+
+if __name__ == "__main__":
+    game()
