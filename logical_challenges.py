@@ -1,5 +1,5 @@
 import random
-## we'll define 0 for the player, 1 for the game master
+# we'll define 0 for the player, 1 for the game master
 def next_player(player):
     if player == 1:
         return 0
