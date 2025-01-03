@@ -1,5 +1,15 @@
 import random
 
+'''
+Fort Boyard Project 
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file : 
+This file aims at providing the chance challenges for the Fort Boyard Game.
+It encompass the two challenges (Shell Game, Dice Game), and chose between them randomly.
+All functions have been commented.
+'''
+
+
 # Shell game (weak)
 def shell_game():
     shells = ['A', 'B', 'C'] # Define the shells where the key could be hidden

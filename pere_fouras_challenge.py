@@ -1,6 +1,15 @@
 import json
 import random
 
+'''
+Fort Boyard Project 
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file : 
+This file aims at providing the pere fouras challenge for the Fort Boyard Game.
+It simply consists of giving the user a riddle. After that, the user has to guess the answer.
+All functions have been commented.
+'''
+
 def load_json(file):
     with open(file, "r") as f:
         data = json.load(f)

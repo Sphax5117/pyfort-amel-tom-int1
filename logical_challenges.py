@@ -6,7 +6,7 @@ Authors : Amel Boulhamane and Tom Hausmann
 Role of this file : 
 This file aims at providing the logical challenges for the Fort Boyard Game.
 It encompass the three challenges (Tic Tac Toe, Battle game and Nim Game), and chose between them randomly.
-Alle functions have been commented.
+All functions have been commented.
 '''
 
 
@@ -180,6 +180,10 @@ def nim_game():
 ##### Tic Tac Toe (Medium)
 
 
+grid = [[" "," "," "],
+        [" "," "," "],
+        [" "," ", " "]
+        ]
 
 def display_grid_ttt(grid):
     if grid == [] or len(grid) != 3:
@@ -192,10 +196,6 @@ def display_grid_ttt(grid):
             print(" ", grid[i][len(grid[i]) - 1])
             print("-"*15)
 
-grid = [[" "," "," "],
-        [" "," "," "],
-        [" "," ", " "]
-        ]
 
 
 def check_victory(grid, symbol): ## amel did that
@@ -324,6 +324,6 @@ def tictactoe_game() :
 #### Challenge choice
 
 def logical_challenge() :
-    challenges =[battleship_game, nim_game, tictactoe_game]
+    challenges = [battleship_game, nim_game, tictactoe_game]
     select_challenge = random.choice(challenges)
     return select_challenge()

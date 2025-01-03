@@ -1,3 +1,12 @@
+'''
+Fort Boyard Project
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file :
+This file encompasses all the necesseraries useful functions. They are mostly used to show data to the player or to ensure the game logic.
+'''
+
+
+
 def introduction():
     print("Welcome to the Fort Boyard, adventurer ! To win the game, you must complete challenges in order to earn keys. With 3 keys, you shall open the treasure room !")
 

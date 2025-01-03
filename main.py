@@ -5,7 +5,12 @@ from pere_fouras_challenge import pere_fouras_riddles
 from utility_functions import *
 from math_challenges import *
 
-### we should add error management on some functions
+'''
+Fort Boyard Project 
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file : 
+This file is the heart of the game, where everything is launched. It follows the order given in the project file.
+'''
 
 def game():
     introduction()

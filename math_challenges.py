@@ -1,5 +1,13 @@
 import random
 
+'''
+Fort Boyard Project 
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file : 
+This file aims at providing the math challenges for the Fort Boyard Game.
+It encompass the four challenges (Factorial, Linear Equation, Prime Number and Math Roulette), and chose between them randomly.
+All functions have been commented.
+'''
 # Factorial challenge (weak)
 def factorial(n):
     final = 1 # Start with 1 because the factorial of 0 or 1 is 1.

@@ -1,6 +1,17 @@
 import json
 import random
 
+
+'''
+Fort Boyard Project 
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file : 
+This file aims at providing the final challenge for the Fort Boyard Game.
+In this final challenge, the user must find the secret word to open the the treasure.
+He has 4 attempts, and at each attempt a new key is revealed.
+All functions have been commented.
+'''
+
 def treasure_room():
     with open("data/TR_Clues.json", "r") as f:
         data = json.load(f)
