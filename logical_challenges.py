@@ -1,4 +1,15 @@
 import random
+
+'''
+Fort Boyard Project 
+Authors : Amel Boulhamane and Tom Hausmann
+Role of this file : 
+This file aims at providing the logical challenges for the Fort Boyard Game.
+It encompass the three challenges (Tic Tac Toe, Battle game and Nim Game), and chose between them randomly.
+Alle functions have been commented.
+'''
+
+
 # we'll define 0 for the player, 1 for the game master
 def next_player(player):
     if player == 1:
@@ -166,8 +177,20 @@ def nim_game():
                 print("The game master removed the last stick! The player wins !")
                 return True
 
+##### Tic Tac Toe (Medium)
 
 
+def display_grid_ttt(grid):
+    if grid == [] or len(grid) != 3:
+        print("The grid isn't properly formatted")
+        return False
+    else:
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                print(grid[i][j], end="|")
+
+
+#### Challenge choice
 
 def logical_challenge() :
     challenges =[battleship_game, nim_game]

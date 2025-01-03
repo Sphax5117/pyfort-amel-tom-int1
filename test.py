@@ -1,16 +1,22 @@
 import random
 
-def display_grid(grid):
-    for i in range(len(grid)):
-        print(" | ".join(grid[i]))
-        print("-" * 9)
+def display_grid_ttt(grid):
+    if grid == [] or len(grid) != 3:
+        print("The grid isn't properly formatted")
+        return False
+    else:
+        for i in range(len(grid)):
+            for j in range(len(grid[i]) - 1):
+                print(" ", grid[i][j], end=" |")#added spaces for more ergonomic reading
+            print(" ", grid[i][len(grid[i]) - 1])
+            print("-"*15)
 
-gird = [["","",""],
-        ["","",""]
-        ["","",""]
+grid = [[" "," "," "],
+        [" "," "," "],
+        [" "," ", " "]
         ]
-print (display_grid(grid))
-"""
+
+
 def check_victory(grid, symbol):
     row = 3
     col = 3
@@ -45,18 +51,33 @@ def check_victory(grid, symbol):
         if cpt3 == 3 :
             return True
     return False
+display_grid_ttt(grid)
+print(check_victory(grid, "O"))
 
 def master_move(grid, symbol):
-    for i in range(3):
-        for j in range(3):
-            if grid[i][j] == ' ':
-                grid[i][j] = symbol
-                if check_victory(grid, symbol) == True :
-                    return (i, j)
-                grid[i][j] = ' '
-    #### pas la suite
+    temp_grid = grid
+    for i in range(len(grid)): ## preview the victory of the game master in each cell, and place symbole were win is possible
+        for j in range(len(grid[i])):
+            if temp_grid[i][j] == " ":
+                temp_grid[i][j] = symbol
+                if check_victory(temp_grid, symbol):
+                    return (i,j)
+                else:
+                    temp_grid[i][j] = " "
+    for i in range(len(grid)): ## preview the victory of the player in each cell, and place symbol were needed
+        for j in range(len(grid[i])):
+            if temp_grid[i][j] == " ":
+                temp_grid[i][j] = "X"
+                if check_victory(temp_grid, "X"):
+                    return (i,j)
+                else:
+                    temp_grid[i][j] = " "
+    return (random.randint(1,3), random.randint(1,3))
+
+print(master_move(grid, "O"))
 
 
+"""
 def player_turn(grid):
     while True:
         try:
@@ -75,7 +96,7 @@ def player_turn(grid):
                 print("The cell is already occupied. Choose another cell.")
 
 def tictactoe_game() :
-    gird = [[" "," "," "],
+    grid = [[" "," "," "],
             [" "," "," "]
             [" "," "," "]
             ]
@@ -88,4 +109,5 @@ def tictactoe_game() :
         if check_result(grid) == True:
             return False
     return None
+
 """
