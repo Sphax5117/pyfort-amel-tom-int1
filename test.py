@@ -51,8 +51,6 @@ def check_victory(grid, symbol):
         if cpt3 == 3 :
             return True
     return False
-display_grid_ttt(grid)
-print(check_victory(grid, "O"))
 
 def master_move(grid, symbol):
     temp_grid = grid
@@ -72,42 +70,71 @@ def master_move(grid, symbol):
                     return (i,j)
                 else:
                     temp_grid[i][j] = " "
-    return (random.randint(1,3), random.randint(1,3))
-
-print(master_move(grid, "O"))
+    return (random.randint(0,2), random.randint(0,2))
 
 
-"""
+
 def player_turn(grid):
     while True:
-        try:
-            row = int(input("Enter a number between (0,1,2) for the row : "))
+        row = int(input("Enter a number between (0,1,2) for the row : "))
+        col = int(input("Enter a number between (0,1,2) for the column : "))
+        while row < 0 or row > 2:
+            print("Invalid input, row must be between 0 and 2")
+            row = int(input("Enter a number from (0,1,2) for the row : "))
+        while col < 0 or col > 2:
+            print("Invalid input, columns must be between 0 and 2")
             col = int(input("Enter a number between (0,1,2) for the column : "))
+        # Check if the cell is empty
+        if grid[row][col] == ' ':
+            grid[row][col] = 'X'  # Place the player's symbol (X)
+            break  # Exit the loop once a valid move is made
+        else:
+            print("The cell is already occupied. Choose another cell.")
 
-            if row < 0 or row > 2 or col < 0 or col > 2:
-                print("Invalid input. Row and column must be between 0 and 2.")
-                continue
+def master_turn(grid):
+    x,y = master_move(grid, "O")
+    grid[x][y] = 'O'
+    return grid
 
-            # Check if the cell is empty
-            if grid[row][col] == ' ':
-                grid[row][col] = 'X'  # Place the player's symbol (X)
-                break  # Exit the loop once a valid move is made
-            else:
-                print("The cell is already occupied. Choose another cell.")
+def full_grid(grid):
+    found_space = False
+    for row in grid:
+        if " " in row:
+            found_space = True
+            break
+    if found_space:
+        return False
+    else:
+        return True
+
+def check_result(grid):
+    if check_victory(grid, "O"):
+        return True
+    elif check_victory(grid, "X"):
+        return True
+    elif full_grid(grid):
+        return True
+    else:
+        return False
+
+
 
 def tictactoe_game() :
-    grid = [[" "," "," "],
-            [" "," "," "]
-            [" "," "," "]
-            ]
-    for i in range (5) :
+    grid = [[" " for i in range(3)] for j in range(3)]
+    while True:
+        display_grid_ttt(grid) ## we need to display the grid for more ergonomy.
         player_turn(grid)
-        if check_result(grid) == True:
-            return True
+        if check_result(grid) == False:
+            master_turn(grid)
+        else:
+            playerWon = check_victory(grid, "X")
+            masterWon = check_victory(grid, "O")
+            if playerWon:
+                print("Bravo, you won !")
+                return True
+            elif masterWon:
+                print("Master has won")
+                return False
 
-        master_turn(grid)
-        if check_result(grid) == True:
-            return False
-    return None
+tictactoe_game()
 
-"""
