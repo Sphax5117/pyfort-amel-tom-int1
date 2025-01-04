@@ -18,13 +18,14 @@ def game():
     team = compose_team()
     key_won = 0
     while key_won < 3 :
-        print(f"--------------- \n  You have {key_won} keys")
+        print(f"-------------------- \n  You have {key_won} keys")
         usrChoice = challenge_menu()
-        print("--------------- \n Now, you must chose which player will participate : ")
         if len(team) > 1:
+            print("-------------------- \nNow, you must chose which player will participate : ")
             player = choose_player(team)
         else:
             player = team[0]
+            print("--------------------")
         if usrChoice == 1:
             if math_challenge():
                 key_won += 1

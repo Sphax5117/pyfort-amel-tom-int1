@@ -11,11 +11,21 @@ def introduction():
     print("Welcome to the Fort Boyard, adventurer ! To win the game, you must complete challenges in order to earn keys. With 3 keys, you shall open the treasure room !")
 
 def compose_team():
-    equip = [] ### we should change that variable name to teams
-    n = int(input("How many players do you want : "))
-    while n > 3 or n < 0:
-        print("Please enter a number of player between 1 and 3 (included)")
-        n = int(input("How many players do you want : "))
+    equip = []
+    ## we found this way on https://docs.python.org/3/tutorial/errors.html to handle errors.
+    while True:
+        try: #we "try" to get a correct input from the user
+            n = int(input("How many players do you want : "))
+            if n <= 0 or n > 3:
+                print("Please enter a number between 1 and 3!")
+                continue
+            else:
+                break
+        except ValueError: ## if it isn't the loop isn't broke
+            print("Please enter a number (not text)")
+        ### we should change that variable name to teams
+
+
     for i in range(n):
         name = input("What is your name? ")
         profession = input("What is your profession? ")
@@ -36,10 +46,17 @@ def compose_team():
 
 
 def challenge_menu():
-    print("----------- \n You must chose a challenge type:  \n 1. Mathematics challenge \n 2. Logic challenge \n 3. Chance challenge \n 4. Père Fouras' riddle")
-    usrChoice = int(input("Enter you choice : "))
-    while usrChoice < 1 or usrChoice > 4:
-        usrChoice = int(input("Re-enter your choice : "))
+    print("-------------------- \nYou must chose a challenge type: \n \n1. Mathematics challenge \n2. Logic challenge \n3. Chance challenge \n4. Père Fouras' riddle \n")
+    while True:
+        try:
+            usrChoice = int(input("Enter you choice : "))
+            if usrChoice < 1 or usrChoice > 4:
+                print("Please enter a number between 1 and 4!")
+                continue
+            else:
+                break
+        except ValueError:
+            print("Please enter a number (not text)")
     return usrChoice
 
 def choose_player(team):
