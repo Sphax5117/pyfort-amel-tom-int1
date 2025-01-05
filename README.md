@@ -56,7 +56,7 @@ We are now going to present our game line by line for a better understanding:
   Randomly presents one of the mathematical challenges (solving a factorial problem, a linear equation, a mathematical roulette, or finding the nearest prime number). Depending on the player's response, it indicates whether the challenge has been successfully completed (winning a key or not).
   
 - **`logical_challenge`**  
-  Presents the player with a series of logical puzzles (Tic-Tac-Toe or Battleship). The function selects a game, and if the player wins, they get a key.
+  Presents the player with a series of logical puzzles (Tic-Tac-Toe, Battleship or Nim Game). The function selects a game, and if the player wins, they get a key.
   
 - **`chance_challenge`**  
   Combines two games of chance - the shell game and the dice game - into a single challenge. The player must succeed in at least one of these games to win the key.
@@ -74,6 +74,7 @@ We are now going to present our game line by line for a better understanding:
 - The game prompts users to choose a challenge (1 to 4). Inputs are checked to ensure they are valid, and invalid choices require retrying.
 - When forming the team, players must enter their name, profession, and leader status (“yes” or “no”). The game ensures all fields are completed correctly before proceeding.
 - Challenges like riddles and math require specific answers. If the answer is wrong, players can retry until attempts are used up, with guiding messages provided.
+- On all those challenge, the user Input is handled using while, try and except ValueError.
 - To enter the treasure room, players must guess a secret word in four tries. Wrong guesses provide extra clues until the word is guessed or attempts run out.
 
 ---
@@ -86,6 +87,12 @@ We are now going to present our game line by line for a better understanding:
 - **Friday, December 20th**  
   Integrated all the individual functions into the final program and started the final tests and improvements.
 
+- **Vacations !**  
+  We took some time for ourselves :)
+
+- **Sunday, January 3rd**  
+  Final call between Amel and Tom to ensure everything is alright and correct the minor bugs that were left.
+
 ---
 
 ## Task Distribution
@@ -95,4 +102,4 @@ We are now going to present our game line by line for a better understanding:
   
 - **Tom**  
   Developed the main logic of the various challenges, including logic puzzles, games of chance, the Père Fouras challenge, and the final challenge.  
-  Throughout the process, they worked closely together, providing mutual logic support.
+  Throughout the process, we worked closely together, providing mutual logic support.
