@@ -65,11 +65,18 @@ def choose_player(team):
             r = "Leader"
         else: r = "Member"
         print(f"---------- Player {i +1 } \n Name : {team[i]['name']} \n Profession {team[i]['profession']} \n Role : {r}")
-    usrchoice = int(input("Enter the player's number : "))
-    while usrchoice < 1 or usrchoice > len(team):
-        usrchoice = int(input("Re-enter the player's number :"))
+    while True:
+        try:
+            usrchoice = int(input("Enter the player's number : "))
+            if usrchoice >= 1 and usrchoice <= len(team):
+                break
+            else:
+                print(f"Please enter a number between 1 and {len(team)}!")
+        except ValueError:
+            print("Please enter a number (not text)")
 
     return team[usrchoice-1]
 
 def record_history(): ### We'll develop that later, might store in a JSON
     pass
+## unfortunately, we didn't have the time to develop this.

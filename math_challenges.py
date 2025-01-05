@@ -43,17 +43,14 @@ def math_challenge_equation() :
     print("Math Challenge: Solve the equation",a,"x +",b,"= 0")
     while True:
         try:
-            userInput = input("What is the value of x (be careful, expressions such as -3+2 will be evaluated as -1) :")
-            for i in userInput:
-                if i not in "0123456789,./-+":
-                    print("Please enter a number")
-                    continue
-                else:
-                    safeUserInput = float(eval(userInput))
-                    break
-        except (ValueError, ZeroDivisionError):
-            print("Please enter a number (not text) nor divide by 0")
-            continue
+            userInput = input("What is the value of x (be careful, expressions such as -3+2 will be evaluated as -1): ")
+            if all(i in "0123456789,./-+" for i in userInput): #we check if all character in userInput are in "012 ... -+"
+                safeUserInput = float(eval(userInput)) #if it's the case we evaluate expressions such as 3/2 and store it
+                break  # after, we break the loop
+            else:
+                print("Please enter a valid number or mathematical expression.")
+        except (ValueError, ZeroDivisionError): #we also handle division by zero and type errors
+            print("Invalid input. Please enter a number or a valid mathematical expression without division by zero.")
     if x == safeUserInput :
         print("Correct! You won a key.")
         return True

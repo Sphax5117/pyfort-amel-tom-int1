@@ -1,4 +1,5 @@
 import random
+from multiprocessing.managers import Value
 
 '''
 Fort Boyard Project 
@@ -30,12 +31,29 @@ def display_grid(grid, message):
     print("——————————")
 
 def ask_position():
+    """
+    This was our first attempt at securing and sanitazing the data, but it didn't handle it well.
     r,c = eval(input("Enter the position in the format row,column (1,2 or 3) : "))
     r,c = r-1,c-1
     while r < 0 or r > 2 or c < 0 or c > 2:
         r, c = eval(input("Enter the position in the format row,column : (1,2 or 3)"))
         r, c = r - 1, c - 1
     return (r,c)
+    """
+    while True:
+        try:
+
+            user_input = input("Enter the position in the format row,column (for example:  2,2 or 3,3): ")
+            r, c = user_input.split(",") ## instead of evaluating, we split the data input by the user
+            r = int(r.strip()) # strip allows us to remove the empty spaces in the given inpouts
+            c = int(c.strip())
+            if r in {1, 2, 3} and c in {1, 2, 3}: #we check if row and columns are well in 1,2 or 3
+                break
+            else:
+                print("Invalid input. Both row and column must be 1, 2, or 3.")
+        except ValueError:
+            print("Please enter two numbers separated by a comma.")
+    return (r-1,c-1) #We then convert to index
 
 def initialize():
     playerBoats = empty_grid()
@@ -131,17 +149,23 @@ def battleship_game():
 
 ##################################################### The game of Nim (Weak)
 
-def display_sticks (n) :
+def display_sticks(n) :
     nb_sticks = n * "|"
     print(nb_sticks)
 
 def player_removal(n) :
-    a = int(input("Enter an integer between 1,2,3 :"))
-    while a < 1 or a > 3 :
-        a = int(input("Enter an integer between 1,2,3 :"))
+    while True:
+        try:
+            a = int(input("Enter an integer between 1,2,3 :"))
+            if a >= 1 and a <= 3 and len(str(a)) == 1:
+                break
+            else:
+                print("Invalid input. Please enter an integer between 1,2,3 :")
+        except ValueError:
+            print("Please enter a number (not text)")
     n = n - a
     nb_sticks = n * '|'
-    return nb_sticks
+    return (nb_sticks, a)
 
 def master_removal (n):
     b = n % 4
@@ -155,9 +179,7 @@ def nim_game():
         display_sticks(n)
         if is_player_turn == True :
             print("Player's turn!")
-            n_removed = int(input("Enter an integer between 1, 2, or 3: "))
-            while n_removed < 1 or n_removed > 3 or n_removed > n:
-                n_removed = int(input("Enter an integer between 1, 2, or 3: "))
+            n_player_sticks, n_removed = player_removal(n)
             is_player_turn = False
         else:
             print("Game master's turn!")
@@ -257,20 +279,23 @@ def master_move(grid, symbol):
 
 def player_turn(grid):
     while True:
-        row = int(input("Enter a number between (0,1,2) for the row : "))
-        col = int(input("Enter a number between (0,1,2) for the column : "))
-        while row < 0 or row > 2:
-            print("Invalid input, row must be between 0 and 2")
-            row = int(input("Enter a number from (0,1,2) for the row : "))
-        while col < 0 or col > 2:
-            print("Invalid input, columns must be between 0 and 2")
+        try:
+            row = int(input("Enter a number between (0,1,2) for the row : "))
             col = int(input("Enter a number between (0,1,2) for the column : "))
+            while row < 0 or row > 2:
+                print("Invalid input, row must be between 0 and 2")
+                row = int(input("Enter a number from (0,1,2) for the row : "))
+            while col < 0 or col > 2:
+                print("Invalid input, columns must be between 0 and 2")
+                col = int(input("Enter a number between (0,1,2) for the column : "))
         # Check if the cell is empty
-        if grid[row][col] == ' ':
-            grid[row][col] = 'X'  # Place the player's symbol (X)
-            break  # Exit the loop once a valid move is made
-        else:
-            print("The cell is already occupied. Choose another cell.")
+            if grid[row][col] == ' ':
+                grid[row][col] = 'X'  # Place the player's symbol (X)
+                break  # Exit the loop once a valid move is made
+            else:
+                print("The cell is already occupied. Choose another cell.")
+        except ValueError:
+            print("Please enter a number")
 
 def master_turn(grid):
     x,y = master_move(grid, "O")

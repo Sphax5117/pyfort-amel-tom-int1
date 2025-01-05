@@ -7,6 +7,7 @@ Role of this file :
 This file aims at providing the chance challenges for the Fort Boyard Game.
 It encompass the two challenges (Shell Game, Dice Game), and chose between them randomly.
 All functions have been commented.
+Note that we didn't have to sanitize inputs as they were strings;
 '''
 
 
