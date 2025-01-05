@@ -15,23 +15,22 @@ We are now going to present our game line by line for a better understanding:
 9. Message to choose a player for the next challenge.
 10. Checks if the team has more than one player.
 11. Calls the `choose_player` function to select a player from the team.
-12. //
-13. If there is only one player, he/she is automatically chosen for the challenge.
-14. Checks if the user has chosen option 1 (mathematical challenge).
-15. Calls the `math_challenge` function and checks if the player has succeeded.
-16. Increases the number of keys won by 1 if the challenge is successful.
-17. Checks if the user has chosen option 2 (logical challenge).
-18. Calls the `logical_challenge` function and checks if the player succeeded. 
-19. Increments the `key_won` count by 1 if the challenge is successful. 
-20. Checks if the user chose option 3 (chance challenge). 
-21. Calls the `chance_challenge` function and checks if the player succeeded. 
-22. Increments the `key_won` count by 1 if the challenge is successful.
-23. Checks if the user chose option 4 (Père Fouras' riddle). 
-24. Calls the `pere_fouras_riddles` function and checks whether the player has succeeded.
-25. Increases the number of keys won by 1 if the challenge is successful.
-26. If all 3 keys are won, the player moves on to the `treasure_room` function where they guess a secret word.
-27. If the `treasure_room` function returns `True`, a victory message is displayed.
-28. If the `treasure_room` function returns `False`, a failure message is displayed.
+12. If there is only one player, he/she is automatically chosen for the challenge.
+13. Checks if the user has chosen option 1 (mathematical challenge).
+14. Calls the `math_challenge` function and checks if the player has succeeded.
+15. Increases the number of keys won by 1 if the challenge is successful.
+16. Checks if the user has chosen option 2 (logical challenge).
+17. Calls the `logical_challenge` function and checks if the player succeeded. 
+18. Increments the `key_won` count by 1 if the challenge is successful. 
+19. Checks if the user chose option 3 (chance challenge). 
+20. Calls the `chance_challenge` function and checks if the player succeeded. 
+21. Increments the `key_won` count by 1 if the challenge is successful.
+22. Checks if the user chose option 4 (Père Fouras' riddle). 
+23. Calls the `pere_fouras_riddles` function and checks whether the player has succeeded.
+24. Increases the number of keys won by 1 if the challenge is successful.
+25. If all 3 keys are won, the player moves on to the `treasure_room` function where they guess a secret word.
+26. If the `treasure_room` function returns `True`, a victory message is displayed.
+27. If the `treasure_room` function returns `False`, a failure message is displayed.
 
 ---
 
