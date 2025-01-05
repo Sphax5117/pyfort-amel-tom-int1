@@ -1,6 +1,6 @@
 # Fort Boyard Simulator Project - Amel Boulhamane And Tom Hausmann
 
-The Fort Boyard simulator, created by Hausmann Tom and Boulhamane Amel, is a project inspired by the TV game show. In this game, players must work in teams to complete various challenges and win three keys. Once all the keys have been collected, they move on to the final challenge, where the aim is to guess the secret word and unlock the treasure room. Developed in Python, the game uses the random library to introduce unpredictable elements. ChatGPT was also used to generate rules. Throughout the creation of the game, PyCharm was used as the main coding environment.
+The Fort Boyard simulator, created by Hausmann Tom and Boulhamane Amel, is a project inspired by the TV game show. In this game, players must work in teams to complete various challenges and win three keys. Once all the keys have been collected, they move on to the final challenge, where the aim is to guess the secret word and unlock the treasure room. Developed in Python, the game uses the random library to introduce unpredictable elements. ChatGPT was also used to generate the text of rules. Throughout the creation of the game, PyCharm was used as the main coding environment, and files were stored on Github.
 
 We are now going to present our game line by line for a better understanding:
 
@@ -103,3 +103,7 @@ We are now going to present our game line by line for a better understanding:
 - **Tom**  
   Developed the main logic of the various challenges, including logic puzzles, games of chance, the Père Fouras challenge, and the final challenge.  
   Throughout the process, we worked closely together, providing mutual logic support.
+
+## Notabene
+
+A branch is available on the [GitHub repository](https://github.com/Sphax5117/pyfort-amel-tom-int1/tree/GUI-version) where we have started developing a GUI version of the Fort Boyard simulator.
