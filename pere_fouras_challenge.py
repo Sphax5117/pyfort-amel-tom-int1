@@ -16,14 +16,14 @@ def load_json(file):
 
     riddles = []
     for riddle in data:
-       riddles.append({riddle['riddle']:riddle['answer']})
+       riddles.append({riddle['question']:riddle['answer']}) ##questions to riddle.
     return riddles
 
 def pere_fouras_riddles():
-    riddles = load_json("data/PFRiddles.json")
+    riddles = load_json("data/PFRiddles2.json") ## change to riddle
     attempts = 3
     chosenRiddle = random.choice(riddles)
-    print(f"Hello Adventurer.\nHere is my riddle : {list(chosenRiddle.keys())[0]}.")
+    print(f"Hello Adventurer.\nHere is my riddle : \n\n{list(chosenRiddle.keys())[0]}.\n")
     while attempts > 0:
         print(f"You have {attempts} attempts left.")
         usrInput = input("Your answer : ").lower()
