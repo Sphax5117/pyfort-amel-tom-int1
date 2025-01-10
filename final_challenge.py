@@ -29,13 +29,9 @@ def treasure_room():
         print(f"You have {attempts} attempts left.")
         usrInput = input("\nYour answer : ").upper()
         if usrInput == code_word:
-            answer_correct = True
-            break
+            return True
         elif attempts > 1:
             print(f"Sorry, but your answer is wrong. Here is the next clue : {associatedClues[-attempts+1]}") ## to display dynamically the resting clues, we start by -attempts (hence -3)
         attempts -= 1
-    if answer_correct:
-        return True
-    else:
-        print(f"The answer was {code_word}...")
-        return False
+    print(f"The answer was {code_word}...")
+    return False
